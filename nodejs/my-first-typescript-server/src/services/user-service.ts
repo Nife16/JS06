@@ -1,5 +1,5 @@
 import userRepo from '@repos/user-repo';
-import { IUser } from '@models/user-model';
+import { ISignInUser, IUser } from '@models/user-model';
 import { UserNotFoundError } from '@shared/errors';
 
 
@@ -13,10 +13,24 @@ function getAll(): Promise<IUser[]> {
 }
 
 /**
+ * Get all users
+ */
+ function findByEmail(email: string): Promise<IUser | null> {
+  return userRepo.getOne(email);
+}
+
+/**
  * Add one user
  */
-function addOne(user: IUser): Promise<void> {
+ function signUp(user: IUser): Promise<void> {
   return userRepo.add(user);
+}
+
+/**
+ * Add one user
+ */
+ function signIn(user: ISignInUser): Promise<IUser | null> {
+  return userRepo.findByEmailAndPassword(user.email, user.password);
 }
 
 /**
@@ -46,7 +60,9 @@ async function _delete(id: number): Promise<void> {
 
 export default {
     getAll,
-    addOne,
+    signUp,
+    signIn,
+    findByEmail,
     updateOne,
     delete: _delete,
 } as const;

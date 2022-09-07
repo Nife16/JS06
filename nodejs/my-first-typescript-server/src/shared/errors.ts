@@ -32,3 +32,13 @@ export class UserNotFoundError extends CustomError {
     super(UserNotFoundError.Msg, UserNotFoundError.HttpStatus);
   }
 }
+
+export class ResturauntNotFoundError extends CustomError {
+
+  public static readonly Msg = 'A resturaunt with the given id does not exists in the database.';
+  public static readonly HttpStatus = HttpStatusCodes.NOT_FOUND;
+
+  constructor() {
+    super(ResturauntNotFoundError.Msg, ResturauntNotFoundError.HttpStatus);
+  }
+}

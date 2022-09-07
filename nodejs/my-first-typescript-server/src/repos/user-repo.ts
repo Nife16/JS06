@@ -19,6 +19,19 @@ async function getOne(email: string): Promise<IUser | null> {
 }
 
 /**
+ * Find By Email and Password
+ */
+ async function findByEmailAndPassword(email: string, password: string): Promise<IUser | null> {
+  const db = await orm.openDb();
+  for (const user of db.users) {
+    if (user.email === email && user.password === password) {
+      return user;
+    }
+  }
+  return null;
+}
+
+/**
  * See if a user with the given id exists.
  */
 async function persists(id: number): Promise<boolean> {
@@ -55,7 +68,7 @@ async function add(user: IUser): Promise<void> {
 async function update(user: IUser): Promise<void> {
   const db = await orm.openDb();
   for (let i = 0; i < db.users.length; i++) {
-    if (db.users[i].id === user.id) {
+    if (db.users[i].id === user.id) { 
       db.users[i] = user;
       return orm.saveDb(db);
     }
@@ -80,6 +93,7 @@ async function _delete(id: number): Promise<void> {
 
 export default {
   getOne,
+  findByEmailAndPassword,
   persists,
   getAll,
   add,

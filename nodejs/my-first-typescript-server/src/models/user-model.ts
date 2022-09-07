@@ -5,6 +5,12 @@ export interface IUser {
   id: number;
   name: string;
   email: string;
+  password: string;
+}
+
+export interface ISignInUser {
+  email: string
+  password: string
 }
 
 // **** Functions **** //
@@ -12,29 +18,17 @@ export interface IUser {
 /**
  * Get a new User object.
  */
-function _new(name: string, email: string): IUser {
+function _new(name: string, email: string, password: string): IUser {
   return {
     id: -1,
     email,
     name,
+    password
   };
 }
-
-/**
- * Copy a user object.
- */
-function copy(user: IUser): IUser {
-  return {
-    id: user.id,
-    email: user.email,
-    name: user.name,
-  };
-}
-
 
 // **** Export default **** //
 
 export default {
-  new: _new,
-  copy,
+  new: _new
 };
