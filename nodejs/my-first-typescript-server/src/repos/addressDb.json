@@ -1,1 +1,28 @@
-{"address":[{"houseNumber":"123","streetName":"Wallaby Way","city":"Bikini Bottom","state":"California","zipCode":"90210","id":240317244042}]}
+{
+    "address": [
+        {
+            "houseNumber": "124",
+            "streetName": "Plankton Way",
+            "city": "Bikini Bottom",
+            "state": "Hawaii",
+            "zipCode": "90210",
+            "id": 240317244042
+        },
+        {
+            "houseNumber": "125",
+            "streetName": "Wallaby Way",
+            "city": "Bikini Bottom",
+            "state": "California",
+            "zipCode": "90210",
+            "id": 567894846417
+        },
+        {
+            "houseNumber": "124",
+            "streetName": "Wallaby Way",
+            "city": "Bikini Bottom",
+            "state": "California",
+            "zipCode": "90210",
+            "id": 892049432341
+        }
+    ]
+}

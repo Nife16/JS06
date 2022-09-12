@@ -13,5 +13,3 @@ bin
 # Don't let them see your keys!!! Ideally you want all your stuff in a private github or gitignored if you have API keys and such
 production.env
 
-# Dont put migration folders up, make your own DB's chumps
-migrations

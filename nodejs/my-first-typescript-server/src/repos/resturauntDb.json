@@ -1,1 +1,34 @@
-{"resturaunts":[{"name":"Krusty Krab","address":{"houseNumber":"123","streetName":"Wallaby Way","city":"Bikini Bottom","state":"California","zipCode":"90210","id":240317244042},"phoneNumber":"1234","rating":"5","typeOfFood":"Deep Sea Dining","id":798348072500}]}
+{
+    "resturaunts": [
+        {
+            "name": "Krusty Krab Pizza",
+            "address": {
+                "houseNumber": "123",
+                "streetName": "Wallaby Way",
+                "city": "Bikini Bottom",
+                "state": "California",
+                "zipCode": "90210",
+                "id": 240317244042
+            },
+            "phoneNumber": "1234",
+            "rating": "5",
+            "typeOfFood": "Deep Sea Dining",
+            "id": 798348072500
+        },
+        {
+            "name": "Krusty Krab Subs and Sandwiches",
+            "address": {
+                "houseNumber": "124",
+                "streetName": "Wallaby Way",
+                "city": "Bikini Bottom",
+                "state": "California",
+                "zipCode": "90210",
+                "id": 892049432341
+            },
+            "phoneNumber": "1234",
+            "rating": "5",
+            "typeOfFood": "Deep Sea Dining",
+            "id": 436202828446
+        }
+    ]
+}

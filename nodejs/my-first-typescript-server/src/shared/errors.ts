@@ -42,3 +42,13 @@ export class ResturauntNotFoundError extends CustomError {
     super(ResturauntNotFoundError.Msg, ResturauntNotFoundError.HttpStatus);
   }
 }
+
+export class AddressNotFoundError extends CustomError {
+
+  public static readonly Msg = 'A address with the given id does not exists in the database.';
+  public static readonly HttpStatus = HttpStatusCodes.NOT_FOUND;
+
+  constructor() {
+    super(AddressNotFoundError.Msg, AddressNotFoundError.HttpStatus);
+  }
+}
