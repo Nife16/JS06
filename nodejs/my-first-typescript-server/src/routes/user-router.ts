@@ -10,7 +10,7 @@ import { ISignInUser, IUser } from '@models/user-model';
 
 // Misc
 const router = Router();
-const { CREATED, OK, INTERNAL_SERVER_ERROR } = StatusCodes;
+const { CREATED, OK, INTERNAL_SERVER_ERROR, BAD_REQUEST } = StatusCodes;
 
 // Paths
 export const p = {
@@ -50,13 +50,11 @@ router.get('/all', async (_: Request, res: Response) => {
  */
 router.post("/signUp", (req: Request, res: Response) => {
 
-    const user = req.body
+    const { user } = req.body
 
     if (!user) {
       throw new ParamMissingError();
     }
-
-    userService.signUp(user)
 
     return res.status(CREATED).json({info:"success"});
 

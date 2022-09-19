@@ -2,7 +2,7 @@
 
 // User schema
 export interface IUser {
-  id: number;
+  id?: string;
   name: string;
   email: string;
   password: string;
@@ -20,7 +20,6 @@ export interface ISignInUser {
  */
 function _new(name: string, email: string, password: string): IUser {
   return {
-    id: -1,
     email,
     name,
     password

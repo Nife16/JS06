@@ -23,11 +23,11 @@ function getAll(): Promise<IUser[]> {
  * Add one user
  */
  function signUp(user: IUser): Promise<void> {
-  return userRepo.add(user);
+  return userRepo.save(user);
 }
 
 /**
- * Add one user
+ * Find By Email And PW user
  */
  function signIn(user: ISignInUser): Promise<IUser | null> {
   return userRepo.findByEmailAndPassword(user.email, user.password);
@@ -37,10 +37,10 @@ function getAll(): Promise<IUser[]> {
  * Update one user
  */
 async function updateOne(user: IUser): Promise<void> {
-  const persists = await userRepo.persists(user.id);
-  if (!persists) {
-    throw new UserNotFoundError();
-  }
+  // const persists = await userRepo.persists(user.id);
+  // if (!persists) {
+  //   throw new UserNotFoundError();
+  // }
   return userRepo.update(user);
 }
 

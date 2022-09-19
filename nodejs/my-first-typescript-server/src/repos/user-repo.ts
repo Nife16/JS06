@@ -1,6 +1,9 @@
 import { IUser } from '@models/user-model';
+import { UserNotFoundError } from '@shared/errors';
 import { getRandomInt } from '@shared/functions';
 import orm from './mock-orm';
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient()
 
 
 // **** Functions **** //
@@ -53,11 +56,28 @@ async function getAll(): Promise<IUser[]> {
 }
 
 /**
+ * Save user.
+ * 
+ * @param user 
+ * @returns 
+ */
+ async function save(user: IUser): Promise<void> {
+
+  return await prisma.user.create({
+    data: {
+      email: user.email,
+      name: user.name,
+      password: user.password
+    }
+  })
+}
+
+/**
  * Add one user.
  */
 async function add(user: IUser): Promise<void> {
   const db = await orm.openDb();
-  user.id = getRandomInt();
+  //user.id = getRandomInt();
   db.users.push(user);
   return orm.saveDb(db);
 }
@@ -99,6 +119,7 @@ export default {
   persists,
   getAll,
   add,
+  save,
   update,
   delete: _delete,
 } as const;
