@@ -1,0 +1,152 @@
+.flex-row {
+    -moz-box-direction: row;
+    -webkit-box-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flexbox-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+.flex-col {
+    -moz-box-direction: column;
+    -webkit-box-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flexbox-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+html, body, header, footer, div {
+    display: flex;
+}
+
+html {
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    height: 60px;
+}
+
+.content-right {
+    justify-content: right;
+}
+
+.content-center {
+    justify-content: center;
+}
+
+.half-width {
+    width: 50%;
+}
+
+.third-width {
+    width: 33%;
+}
+
+.header-links {
+    margin: auto 15px;
+    color: black;
+    text-decoration: none;
+}
+
+.footer-links {
+    margin: auto 15px;
+    color: black;
+    text-decoration: none;
+    padding: 15px;
+}
+
+.header-button {
+    border-style: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: purple;
+    border-color: purple;
+    color: white;
+    font-size: 25px;
+    margin: auto 10px;
+}
+
+.main-content {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.content-margins {
+    margin: 15px 0px;
+}
+
+.logo {
+    margin-top: 140px;
+    justify-content: center;
+}
+
+.search-bar {
+    border-style: solid;
+    border-radius: 30px;
+    border-color: #dfe1e5;
+    border-width: thin;
+    height: 44px;
+    width: 582px;
+}
+
+.search-bar:hover {
+    color: #dfe1e5;
+    box-shadow: 1px 1px 1px 1px;
+}
+
+.text-box {
+    border-style: none;
+    height: 40px;
+    width: 483px;
+    margin: auto;
+}
+
+.search-bar-items {
+    margin: auto;
+    height: 15px;
+    width: 15px;
+    color:#dfe1e5;
+}
+
+input:focus {
+    outline: none;
+}
+
+.search-buttons {
+    background-color: #f8f9fa;
+    border: 1px solid #f8f9fa;
+    border-radius: 4px;
+    color: #3c4043;
+    font-family: Roboto,arial,sans-serif;
+    font-size: 14px;
+    margin: 11px 4px;
+    padding: 0 16px;
+    line-height: 27px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.search-buttons:hover {
+    color: #3c4043;
+    box-shadow: 1px 1px 1px 1px;
+}
+
+.footer {
+    background-color: #f2f2f2;
+    padding: 0 20px;
+}

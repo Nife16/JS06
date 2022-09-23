@@ -1,6 +1,8 @@
 import { IUser } from '@models/user-model';
 import { UserNotFoundError } from '@shared/errors';
 import { getRandomInt } from '@shared/functions';
+import { pathExistsSync } from 'fs-extra';
+import { userInfo } from 'os';
 import orm from './mock-orm';
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient()
@@ -25,13 +27,17 @@ async function getOne(email: string): Promise<IUser | null> {
  * Find By Email and Password
  */
  async function findByEmailAndPassword(email: string, password: string): Promise<IUser | null> {
-  const db = await orm.openDb();
-  for (const user of db.users) {
-    if (user.email === email && user.password === password) {
-      return user;
+  const user: IUser = await prisma.user.findUnique({
+    where: {
+      email: email
     }
+  })
+
+  if (user?.password === password) {
+    return user
+  } else {
+    throw new Error("Invalid Password")
   }
-  return null;
 }
 
 /**

@@ -48,7 +48,7 @@ router.get('/all', async (_: Request, res: Response) => {
 /**
  * Sign Up
  */
-router.post("/signUp", (req: Request, res: Response) => {
+router.post("/signUp", async (req: Request, res: Response) => {
 
     const { user } = req.body
 
@@ -56,7 +56,9 @@ router.post("/signUp", (req: Request, res: Response) => {
       throw new ParamMissingError();
     }
 
-    return res.status(CREATED).json({info:"success"});
+    const response = await userService.signUp(user)
+
+    return res.status(CREATED).json({info:response});
 
 })
 
@@ -65,7 +67,7 @@ router.post("/signUp", (req: Request, res: Response) => {
  */
  router.post("/signIn", async (req: Request, res: Response) => {
 
-  const user: ISignInUser = req.body
+  const { user } = req.body
   
   if (user.email === undefined || user.password === undefined) {
     throw new ParamMissingError();
